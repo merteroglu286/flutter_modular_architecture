@@ -1,6 +1,12 @@
+import 'package:app_settings/provider/AppSettingsProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular_architecture/di/injection.dart';
+import 'package:injectable/injectable.dart';
 
 void main() {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  configureDependencies(Environment.dev);
   runApp(const MyApp());
 }
 
@@ -69,12 +75,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+
+    final appSettingsProvider = getIt<AppSettingsProvider>();
+
     return Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
@@ -104,9 +107,9 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
+            Text('App Language: ${appSettingsProvider.getAppLanguage()}'),
             Text(
-              '$_counter',
+              'App Theme: ${appSettingsProvider.getThemeType()}',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
