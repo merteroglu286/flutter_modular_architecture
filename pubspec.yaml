@@ -103,6 +103,7 @@ workspace:
   - core/domain
   - core/presentation
   - core/datastore
+  - core/extensions
   - features/auth/login
   - features/auth/register
   - features/home/main
