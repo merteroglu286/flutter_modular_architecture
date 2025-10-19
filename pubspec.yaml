@@ -28,7 +28,8 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  dio: ^5.9.0
+  injectable: ^2.5.2
+  get_it: ^8.2.0
   flutter:
     sdk: flutter
 
@@ -37,7 +38,9 @@ dependencies:
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
+  json_serializable: ^6.11.1
   build_runner: ^2.9.0
+  injectable_generator: ^2.9.0
   flutter_test:
     sdk: flutter
 
