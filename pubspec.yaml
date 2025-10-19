@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  dio: ^5.9.0
   flutter:
     sdk: flutter
 
@@ -36,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
+  build_runner: ^2.9.0
   flutter_test:
     sdk: flutter
 
@@ -90,3 +92,50 @@ flutter:
   # see https://flutter.dev/to/font-from-package
 workspace:
   - core/data
+  - core/domain
+  - core/presentation
+  - features/auth/login
+  - features/auth/register
+  - features/home/main
+  - features/movies
+  - features/settings/app_settings
+  - features/settings/profile
+
+#melos:
+#  command:
+#    bootstrap:
+#      environment:
+#        sdk: ^3.9.2
+#        flutter: ">=1.17.0"
+#
+#      dependencies:
+#        dio: ^5.9.0
+#
+#      dev_dependencies:
+#        flutter_lints: ^5.0.0
+#        build_runner: ^2.9.0
+
+melos:
+  scripts:
+    # Belirli bir paketi tüm modüllere ekle
+    add:global:
+      run: melos exec -- flutter pub add $PACKAGE
+      description: Tüm paketlere bir bağımlılık ekler
+
+  command:
+    bootstrap:
+      runPubGetInParallel: true
+
+
+#==============================
+#
+# Tüm workspace paketlerine aynı paketi ekle
+#  melos exec -- flutter pub add dio
+#
+#  Veya sadece belirli paketlere
+#  melos exec --scope="movies" --scope="auth_login" -- flutter pub add dio
+#
+#  Dev dependency olarak eklemek için
+#  melos exec -- flutter pub add dev:build_runner
+
+#==============================
