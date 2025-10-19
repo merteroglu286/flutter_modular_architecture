@@ -1,4 +1,5 @@
 import 'package:app_settings/provider/AppSettingsProvider.dart';
+import 'package:datastore/provider/SessionProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular_architecture/di/injection.dart';
 import 'package:injectable/injectable.dart';
@@ -77,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
 
     final appSettingsProvider = getIt<AppSettingsProvider>();
+    final sessionProvider = getIt<SessionProvider>();
 
     return Scaffold(
       appBar: AppBar(
@@ -108,6 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('App Language: ${appSettingsProvider.getAppLanguage()}'),
+            Text('Session user Id: ${sessionProvider.getUserId()}'),
             Text(
               'App Theme: ${appSettingsProvider.getThemeType()}',
               style: Theme.of(context).textTheme.headlineMedium,

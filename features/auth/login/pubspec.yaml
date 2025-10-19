@@ -8,8 +8,15 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
+  datastore:
+    path: ../../../core/datastore
+
+  data:
+    path: ../../../core/data
+
   flutter:
     sdk: flutter
+
   dio: ^5.9.0
   injectable: ^2.5.2
   json_annotation: ^4.9.0
