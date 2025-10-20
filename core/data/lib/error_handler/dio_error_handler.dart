@@ -31,8 +31,6 @@ Failure handleError(DioException error) {
       return DataSource.cancelled.getFailure();
     case DioExceptionType.connectionError:
       return DataSource.connectTimeOut.getFailure();
-    case DioExceptionType.unknown:
-      return DataSource.defaultError.getFailure();
     default: // error has error body or error response and we have to send the status code and message we received.
       if (error.response != null &&
           error.response?.statusCode != null &&
