@@ -1,5 +1,20 @@
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
+import 'package:extensions/constants/constants.dart';
+
+extension NonNullString on String? {
+  String orEmpty() {
+    if (this == null) {
+      return Constants.empty;
+    } else {
+      return this!;
+    }
+  }
+}
+extension NonNullInteger on int? {
+  int orZero() {
+    if (this == null) {
+      return Constants.zero;
+    } else {
+      return this!;
+    }
+  }
 }
