@@ -37,7 +37,7 @@ extension GetItInjectableX on _i174.GetIt {
       () => dataModule.provideLanguage(gh<_i940.PreferencesProvider>()),
       instanceName: 'Language',
     );
-    gh.lazySingletonAsync<_i361.Dio>(
+    gh.lazySingleton<_i361.Dio>(
       () => dataModule.dio(
         gh<String>(instanceName: 'BaseUrl'),
         gh<String>(instanceName: 'AccessToken'),
