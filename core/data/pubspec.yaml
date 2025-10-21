@@ -8,9 +8,11 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-
   domain:
     path: ../domain
+
+  datastore:
+    path: ../datastore
 
   flutter:
     sdk: flutter
@@ -23,6 +25,7 @@ dependencies:
   dartz: ^0.10.1
   connectivity_plus: ^7.0.0
   shared_preferences: ^2.5.3
+  uuid: ^4.5.1
 
 dev_dependencies:
   flutter_test:
