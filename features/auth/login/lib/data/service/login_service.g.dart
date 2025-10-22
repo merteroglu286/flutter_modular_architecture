@@ -12,7 +12,7 @@ part of 'login_service.dart';
 
 class _LoginService implements LoginService {
   _LoginService(this._dio, {this.baseUrl, this.errorLogger}) {
-    baseUrl ??= 'https://minafarid.mocklab.io';
+    baseUrl ??= 'https://342dbd9f-f60e-4874-b5ca-2a9b00a0dd17.mock.pstmn.io';
   }
 
   final Dio _dio;
@@ -34,7 +34,7 @@ class _LoginService implements LoginService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/customers/login',
+            '/login',
             queryParameters: queryParameters,
             data: _data,
           )
